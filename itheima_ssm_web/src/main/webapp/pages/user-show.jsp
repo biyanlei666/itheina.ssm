@@ -261,6 +261,7 @@
 	<script src="../plugins/ionslider/ion.rangeSlider.min.js"></script>
 	<script src="../plugins/bootstrap-slider/bootstrap-slider.js"></script>
 	<script>
+		$("#collapse-table").treetable({ expandable : true });
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

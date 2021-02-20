@@ -1,5 +1,8 @@
 package com.itheima.ssm.domain;
 
+import org.springframework.security.core.CredentialsContainer;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.List;
 
 public class UserInfo {

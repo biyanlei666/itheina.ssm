@@ -17,6 +17,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private IUserService userService;
+
+    //查询全部用户
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")Integer page,@RequestParam(name = "pageSize",required = true,defaultValue = "10")Integer pageSize){
         List<UserInfo> userList = userService.findAll(page, pageSize);
@@ -26,9 +28,19 @@ public class UserController {
         mv.addObject("pageInfo",pageInfo);
         return mv;
     }
+    //新增用户
     @RequestMapping("/save.do")
     public String save(UserInfo user){
         userService.save(user);
         return "redirect:findAll.do";
+    }
+    //查询用户详情
+    @RequestMapping("findById.do")
+    public ModelAndView findById(@RequestParam(name = "id",required = true)Integer id){
+        UserInfo userInfo = userService.findById(id);
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("user-show");
+        mv.addObject("user",userInfo);
+        return mv;
     }
 }
